@@ -6,26 +6,35 @@ const EMPTY_DOOR = 0
 const LOOT_DOOR = 1
 
 
-var doorPool
-var door = load("res://Door.tscn")
+var door = preload("res://EmptyDoor.tscn")
+var offset = Vector2(-400, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	doorPool = generatePool()
+	var doorInstance
+	var doorPool = generatePool()
 	for x in doorPool:
 		match x:
 			DEATH_DOOR:
-				var doorInstance = door.instantiate()
+				doorInstance = door.instantiate()
+				doorInstance.position = offset
 				add_child(doorInstance)
+				offset.x += 400
 			MONSTER_DOOR:
-				var doorInstance = door.instantiate()
+				doorInstance = door.instantiate()
+				doorInstance.position = offset
 				add_child(doorInstance)
+				offset.x += 400
 			EMPTY_DOOR:
-				var doorInstance = door.instantiate()
+				doorInstance = door.instantiate()
+				doorInstance.position = offset
 				add_child(doorInstance)
+				offset.x += 400
 			LOOT_DOOR:
-				var doorInstance = door.instantiate()
+				doorInstance = door.instantiate()
+				doorInstance.position = offset
 				add_child(doorInstance)
+				offset.x += 400
 
 
 func generatePool():
