@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq4egn3kjf7qe"]
+
+[ext_resource type="Texture2D" uid="uid://bie2xryfwirhi" path="res://icon.svg" id="1_o8vy6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -123.0
+offset_top = -265.0
+offset_right = 5.0
+offset_bottom = -137.0
+scale = Vector2(1.95483, 3.78033)
+texture_normal = ExtResource("1_o8vy6")
