@@ -3,15 +3,13 @@
 [ext_resource type="Script" path="res://EmptyDoorBehaviour.gd" id="1_mcxmb"]
 [ext_resource type="Texture2D" uid="uid://bie2xryfwirhi" path="res://icon.svg" id="1_meuyy"]
 
-[node name="Node2D" type="Node2D"]
+[node name="EmptyDoor" type="TextureButton"]
+offset_left = -138.0
+offset_top = -220.0
+offset_right = -10.0
+offset_bottom = -92.0
+scale = Vector2(2.14774, 3.21916)
+texture_normal = ExtResource("1_meuyy")
 script = ExtResource("1_mcxmb")
 
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = -123.0
-offset_top = -265.0
-offset_right = 5.0
-offset_bottom = -137.0
-scale = Vector2(1.95483, 3.78033)
-texture_normal = ExtResource("1_meuyy")
-
-[connection signal="pressed" from="TextureButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

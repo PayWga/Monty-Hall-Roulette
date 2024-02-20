@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_pressed():
-	GlobalVars.goodDoorOpened.emit(0)
-	print("www")
+	GlobalVars.badDoorOpened.emit(false)
+	print("bbb") # Replace with function body.
