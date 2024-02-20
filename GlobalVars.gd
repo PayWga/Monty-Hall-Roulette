@@ -1,5 +1,7 @@
 extends Node
 
+var playerScore = 0
+
 signal goodDoorOpened(loot)
 signal badDoorOpened(monster)
 

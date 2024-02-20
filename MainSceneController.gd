@@ -19,7 +19,7 @@ func _process(delta):
 	pass
 
 func on_good_door_opened(loot:int):
-	%"Score".set_text(str((int)(%"Score".text) + 1))
+	%"Score".set_text(str((int)(++GlobalVars.playerScore)))
 	print("aaa")
 	doors.queue_free()
 	doors = doorSpawner.instantiate()
