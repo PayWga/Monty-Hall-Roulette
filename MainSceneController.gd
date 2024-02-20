@@ -19,7 +19,9 @@ func _process(delta):
 	pass
 
 func on_good_door_opened(loot:int):
-	%"Score".set_text(str((int)(++GlobalVars.playerScore)))
+	GlobalVars.playerScore += 1
+	%Score.set_text(str(GlobalVars.playerScore))
+	print(GlobalVars.playerScore)
 	print("aaa")
 	doors.queue_free()
 	doors = doorSpawner.instantiate()
@@ -28,4 +30,5 @@ func on_good_door_opened(loot:int):
 
 func on_bad_door_opened(monster:bool):
 	print("Fail!")
+	GlobalVars.playerScore = 0
 	get_tree().reload_current_scene()

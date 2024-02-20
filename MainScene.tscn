@@ -17,10 +17,10 @@ layout_mode = 2
 
 [node name="Score" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = -58.0
-offset_top = -323.0
-offset_right = -48.0
-offset_bottom = -300.0
-scale = Vector2(12.1701, 6.7048)
+offset_left = -21.0
+offset_top = -283.0
+offset_right = -11.0
+offset_bottom = -260.0
+scale = Vector2(4.28543, 3.44752)
 size_flags_horizontal = 4
 text = "0"
