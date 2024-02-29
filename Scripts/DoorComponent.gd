@@ -1,10 +1,6 @@
-extends Node
+extends Control
 
-enum DoorTypes {EMPTY_DOOR, LOOT_DOOR, MONSTER_DOOR, DEATH_DOOR}
-
-var playerScore = 0
-
-signal DoorOpened(DoorType)
+var DoorType
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,3 +10,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func setDoorType(Type):
+	DoorType = Type
+
+
+func getDoorType():
+	return DoorType

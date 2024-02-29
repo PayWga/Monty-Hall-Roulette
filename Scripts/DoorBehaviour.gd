@@ -1,9 +1,10 @@
 extends Node
 
+var DoorType
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _enter_tree():
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,5 +13,13 @@ func _process(delta):
 
 
 func _on_pressed():
-	GlobalVars.goodDoorOpened.emit(0)
+	GlobalVars.DoorOpened.emit(DoorType)
 	print("www")
+
+
+func setDoorType(Type):
+	DoorType = Type
+
+func setDoorTypeToChildren():
+	get_node("DoorComponent").setDoorType(DoorType)
+	get_node("DoorPeekComponent").setDoorType(DoorType)

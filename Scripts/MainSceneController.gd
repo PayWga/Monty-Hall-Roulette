@@ -1,13 +1,12 @@
 extends Node
 
-var doorSpawner = preload("res://DoorsScene.tscn")
+var doorSpawner = preload("res://Scenes/Prefabs/DoorsScene.tscn")
 var doors
 var spawnerPos = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GlobalVars.goodDoorOpened.connect(on_good_door_opened)
-	GlobalVars.badDoorOpened.connect(on_bad_door_opened)
+	GlobalVars.DoorOpened.connect(on_door_opened)
 	%DoorsContainer.queue_free()
 	doors = doorSpawner.instantiate()
 	add_child(doors)
@@ -18,7 +17,19 @@ func _ready():
 func _process(delta):
 	pass
 
-func on_good_door_opened(loot:int):
+func on_door_opened(DoorType):
+	match DoorType:
+		GlobalVars.DoorTypes.EMPTY_DOOR:
+			OpenEmptyDoor()
+		GlobalVars.DoorTypes.LOOT_DOOR:
+			OpenLootDoor()
+		GlobalVars.DoorTypes.MONSTER_DOOR:
+			OpenMonsterDoor()
+		GlobalVars.DoorTypes.DEATH_DOOR:
+			OpenDeathDoor()
+
+
+func OpenEmptyDoor():
 	GlobalVars.playerScore += 1
 	%Score.set_text(str(GlobalVars.playerScore))
 	print(GlobalVars.playerScore)
@@ -28,7 +39,23 @@ func on_good_door_opened(loot:int):
 	add_child(doors)
 
 
-func on_bad_door_opened(monster:bool):
+func OpenLootDoor():
+	GlobalVars.playerScore += 1
+	%Score.set_text(str(GlobalVars.playerScore))
+	print(GlobalVars.playerScore)
+	print("aaa")
+	doors.queue_free()
+	doors = doorSpawner.instantiate()
+	add_child(doors)
+
+
+func OpenMonsterDoor():
+	print("Fail!")
+	GlobalVars.playerScore = 0
+	get_tree().reload_current_scene()
+
+
+func OpenDeathDoor():
 	print("Fail!")
 	GlobalVars.playerScore = 0
 	get_tree().reload_current_scene()

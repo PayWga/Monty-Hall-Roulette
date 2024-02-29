@@ -1,13 +1,8 @@
 extends Node
 
-const DEATH_DOOR = -2
-const MONSTER_DOOR = -1
-const EMPTY_DOOR = 0
-const LOOT_DOOR = 1
 
 
-var emptyDoor = preload("res://EmptyDoor.tscn")
-var monsterDoor = preload("res://MonsterDoor.tscn")
+var Door = preload("res://Scenes/Prefabs/Door.tscn")
 var offset = Vector2(-550, -150)
 var generator = RandomNumberGenerator.new()
 
@@ -16,34 +11,39 @@ func _ready():
 	print("asd")
 	var doorInstance
 	var doorPool = generatePool()
-	for x in doorPool:
-		match x:
-			DEATH_DOOR:
-				doorInstance = monsterDoor.instantiate()
+	for  door in doorPool:
+		match door:
+			GlobalVars.DoorTypes.DEATH_DOOR:
+				doorInstance = Door.instantiate()
 				doorInstance.position = offset
+				doorInstance.setDoorType(door)
+				add_child(doorInstance)
+				doorInstance.setDoorTypeToChildren()
+				offset.x += 400
+			GlobalVars.DoorTypes.MONSTER_DOOR:
+				doorInstance = Door.instantiate()
+				doorInstance.position = offset
+				doorInstance.get_node("DoorComponent").setDoorType(door)
 				add_child(doorInstance)
 				offset.x += 400
-			MONSTER_DOOR:
-				doorInstance = monsterDoor.instantiate()
+			GlobalVars.DoorTypes.EMPTY_DOOR:
+				doorInstance = Door.instantiate()
 				doorInstance.position = offset
+				doorInstance.get_node("DoorComponent").setDoorType(door)
 				add_child(doorInstance)
 				offset.x += 400
-			EMPTY_DOOR:
-				doorInstance = emptyDoor.instantiate()
+			GlobalVars.DoorTypes.LOOT_DOOR:
+				doorInstance = Door.instantiate()
 				doorInstance.position = offset
-				add_child(doorInstance)
-				offset.x += 400
-			LOOT_DOOR:
-				doorInstance = emptyDoor.instantiate()
-				doorInstance.position = offset
+				doorInstance.get_node("DoorComponent").setDoorType(door)
 				add_child(doorInstance)
 				offset.x += 400
 
 
 func generatePool():
 	if generator.randi_range(0, 1):
-		return [MONSTER_DOOR, MONSTER_DOOR, EMPTY_DOOR]
-	return [EMPTY_DOOR, MONSTER_DOOR, MONSTER_DOOR]
+		return [GlobalVars.DoorTypes.MONSTER_DOOR, GlobalVars.DoorTypes.MONSTER_DOOR, GlobalVars.DoorTypes.EMPTY_DOOR]
+	return [GlobalVars.DoorTypes.EMPTY_DOOR, GlobalVars.DoorTypes.MONSTER_DOOR, GlobalVars.DoorTypes.MONSTER_DOOR]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
