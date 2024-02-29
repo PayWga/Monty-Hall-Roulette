@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqmd3mgl84yc4"]
 
-[ext_resource type="Script" path="res://MainSceneController.gd" id="1_i1rw7"]
-[ext_resource type="PackedScene" uid="uid://pq11lw20aiap" path="res://DoorsScene.tscn" id="2_on1nc"]
+[ext_resource type="Script" path="res://Scripts/MainSceneController.gd" id="1_oq0ac"]
+[ext_resource type="PackedScene" uid="uid://pq11lw20aiap" path="res://Scenes/Prefabs/DoorsScene.tscn" id="2_x51yn"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,9 +9,9 @@
 scale = Vector2(2.66309, 1.9135)
 
 [node name="UI" type="GridContainer" parent="."]
-script = ExtResource("1_i1rw7")
+script = ExtResource("1_oq0ac")
 
-[node name="DoorsContainer" parent="UI" instance=ExtResource("2_on1nc")]
+[node name="DoorsContainer" parent="UI" instance=ExtResource("2_x51yn")]
 unique_name_in_owner = true
 layout_mode = 2
 

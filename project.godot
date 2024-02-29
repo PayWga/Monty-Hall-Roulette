@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="MontyHallRoulette"
-run/main_scene="res://MainScene.tscn"
+run/main_scene="res://Scenes/MainScene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalVars="*res://GlobalVars.gd"
+GlobalVars="*res://Scripts/GlobalVars.gd"
 
 [rendering]
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4eiypvj6p2xs"]
+
+[ext_resource type="Texture2D" uid="uid://bie2xryfwirhi" path="res://icon.svg" id="1_3h44r"]
+[ext_resource type="Script" path="res://Scripts/DoorBehaviour.gd" id="2_o3vbe"]
+
+[node name="Door" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -438.0
+offset_top = -699.0
+offset_right = -310.0
+offset_bottom = -571.0
+scale = Vector2(2.14774, 3.21916)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.18567, 3.19034)
+texture_normal = ExtResource("1_3h44r")
+script = ExtResource("2_o3vbe")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
