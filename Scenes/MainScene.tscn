@@ -6,7 +6,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(2.66309, 1.9135)
+position = Vector2(0, 30)
+scale = Vector2(3.39669, 2.45743)
 
 [node name="UI" type="GridContainer" parent="."]
 script = ExtResource("1_oq0ac")

@@ -18,25 +18,28 @@ func _ready():
 				doorInstance.position = offset
 				doorInstance.setDoorType(door)
 				add_child(doorInstance)
-				doorInstance.setDoorTypeToChildren()
+				doorInstance.setDoorType(door)
 				offset.x += 400
 			GlobalVars.DoorTypes.MONSTER_DOOR:
 				doorInstance = Door.instantiate()
 				doorInstance.position = offset
-				doorInstance.get_node("DoorComponent").setDoorType(door)
+				doorInstance.setDoorType(door)
 				add_child(doorInstance)
+				doorInstance.setDoorTypeToChildren()
 				offset.x += 400
 			GlobalVars.DoorTypes.EMPTY_DOOR:
 				doorInstance = Door.instantiate()
 				doorInstance.position = offset
-				doorInstance.get_node("DoorComponent").setDoorType(door)
+				doorInstance.setDoorType(door)
 				add_child(doorInstance)
+				doorInstance.setDoorTypeToChildren()
 				offset.x += 400
 			GlobalVars.DoorTypes.LOOT_DOOR:
 				doorInstance = Door.instantiate()
 				doorInstance.position = offset
-				doorInstance.get_node("DoorComponent").setDoorType(door)
+				doorInstance.setDoorType(door)
 				add_child(doorInstance)
+				doorInstance.setDoorTypeToChildren()
 				offset.x += 400
 
 

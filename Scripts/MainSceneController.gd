@@ -7,6 +7,7 @@ var spawnerPos = Vector2(0,0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalVars.DoorOpened.connect(on_door_opened)
+	GlobalVars.AbilityUsed.connect(on_ability_used)
 	%DoorsContainer.queue_free()
 	doors = doorSpawner.instantiate()
 	add_child(doors)
@@ -27,6 +28,18 @@ func on_door_opened(DoorType):
 			OpenMonsterDoor()
 		GlobalVars.DoorTypes.DEATH_DOOR:
 			OpenDeathDoor()
+
+
+func on_ability_used(AbilityType):
+	match AbilityType:
+		GlobalVars.AbilityTypes.MONTY_HALL:
+			UseMontyHall()
+		GlobalVars.AbilityTypes.REVEAL:
+			UseReveal()
+		GlobalVars.AbilityTypes.DESTRUCTION:
+			UseDestruction()
+		GlobalVars.AbilityTypes.KEY:
+			UseKey()
 
 
 func OpenEmptyDoor():
@@ -59,3 +72,19 @@ func OpenDeathDoor():
 	print("Fail!")
 	GlobalVars.playerScore = 0
 	get_tree().reload_current_scene()
+
+
+func UseMontyHall():
+	pass
+
+
+func UseReveal():
+	pass
+
+
+func UseKey():
+	pass
+
+
+func UseDestruction():
+	pass
