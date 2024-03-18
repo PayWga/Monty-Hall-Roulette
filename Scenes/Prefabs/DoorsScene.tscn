@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://pq11lw20aiap"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnDoors.gd" id="1_bhj2i"]
+
+[node name="DoorsContainer" type="Container"]
+script = ExtResource("1_bhj2i")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq6tk2u8ilw3s"]
+
+[ext_resource type="PackedScene" uid="uid://b4eiypvj6p2xs" path="res://Scenes/Prefabs/Door.tscn" id="1_gkln2"]
+[ext_resource type="Script" path="res://Scripts/MonsterDoorBehaviour.gd" id="2_wvpkf"]
+
+[node name="MonsterDoor" instance=ExtResource("1_gkln2")]
+script = ExtResource("2_wvpkf")

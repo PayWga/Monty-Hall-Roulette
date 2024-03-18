@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2wl2w1ebwaxb"]
+
+[ext_resource type="PackedScene" uid="uid://yca8r0f1gi6h" path="res://Scenes/Components/AbilityComponent.tscn" id="1_cuqbw"]
+[ext_resource type="Script" path="res://Scripts/AbilityBehaviour.gd" id="1_w0qtp"]
+[ext_resource type="Texture2D" uid="uid://bie2xryfwirhi" path="res://icon.svg" id="2_t35u0"]
+[ext_resource type="Script" path="res://Scripts/AbilityPressed.gd" id="4_1oitx"]
+
+[node name="Ability" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w0qtp")
+
+[node name="AbilityComponent" parent="." instance=ExtResource("1_cuqbw")]
+layout_mode = 1
+
+[node name="AbilityTexture" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.83419, 0.332169)
+texture_normal = ExtResource("2_t35u0")
+script = ExtResource("4_1oitx")
