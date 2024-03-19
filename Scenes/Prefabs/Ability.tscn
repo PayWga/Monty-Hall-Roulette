@@ -16,6 +16,7 @@ script = ExtResource("1_w0qtp")
 
 [node name="AbilityComponent" parent="." instance=ExtResource("1_cuqbw")]
 layout_mode = 1
+mouse_filter = 2
 
 [node name="AbilityTexture" type="TextureButton" parent="."]
 layout_mode = 0

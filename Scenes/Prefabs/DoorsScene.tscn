@@ -3,4 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/SpawnDoors.gd" id="1_bhj2i"]
 
 [node name="DoorsContainer" type="Container"]
+layout_direction = 2
+size_flags_horizontal = 4
 script = ExtResource("1_bhj2i")
