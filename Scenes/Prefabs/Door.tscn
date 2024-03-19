@@ -1,36 +1,39 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4eiypvj6p2xs"]
 
-[ext_resource type="Texture2D" uid="uid://bie2xryfwirhi" path="res://icon.svg" id="1_3h44r"]
+[ext_resource type="Texture2D" uid="uid://crkbkjv0qo3ji" path="res://SpritesPng/DoorSprite.png" id="2_d7huc"]
 [ext_resource type="Script" path="res://Scripts/DoorBehaviour.gd" id="2_o3vbe"]
 [ext_resource type="PackedScene" uid="uid://cd5ll5yq3u4rj" path="res://Scenes/Components/DoorComponent.tscn" id="3_4ysve"]
 [ext_resource type="Script" path="res://Scripts/DoorPressed.gd" id="3_8p46a"]
 [ext_resource type="PackedScene" uid="uid://bnbculhnhddg0" path="res://Scenes/Components/DoorPeekComponent.tscn" id="4_11kur"]
 
 [node name="Door" type="Control"]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 3
 anchors_preset = 0
-offset_left = -438.0
-offset_top = -699.0
-offset_right = -310.0
-offset_bottom = -571.0
-scale = Vector2(2.14774, 3.21916)
+offset_right = 256.0
+offset_bottom = 256.0
+scale = Vector2(1.13046, 1.74163)
+mouse_filter = 2
 script = ExtResource("2_o3vbe")
 
 [node name="DoorTexture" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(22, 31)
 layout_mode = 0
-offset_left = 97.7772
-offset_top = 57.779
-offset_right = 225.777
-offset_bottom = 185.779
-scale = Vector2(1.66962, 2.34852)
-texture_normal = ExtResource("1_3h44r")
+offset_left = 3.25923
+offset_top = 7.766
+offset_right = 25.2592
+offset_bottom = 38.766
+scale = Vector2(11.7083, 7.82534)
+texture_normal = ExtResource("2_d7huc")
 script = ExtResource("3_8p46a")
 
 [node name="DoorComponent" parent="." instance=ExtResource("3_4ysve")]
 unique_name_in_owner = true
 layout_mode = 1
+mouse_filter = 2
 
 [node name="DoorPeekComponent" parent="." instance=ExtResource("4_11kur")]
 layout_mode = 1
+mouse_filter = 2
 
 [connection signal="pressed" from="DoorTexture" to="DoorTexture" method="_on_pressed"]
