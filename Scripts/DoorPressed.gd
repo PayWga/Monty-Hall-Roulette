@@ -18,4 +18,4 @@ func setDoorType(Type):
 
 func _on_pressed():
 	GlobalVars.DoorOpened.emit(DoorType)
-	print("www")
+	print('DoorType')

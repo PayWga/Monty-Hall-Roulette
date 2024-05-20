@@ -6,9 +6,9 @@ var spawnerPos = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%DoorsContainer.queue_free()
 	GlobalVars.DoorOpened.connect(on_door_opened)
 	GlobalVars.AbilityUsed.connect(on_ability_used)
-	%DoorsContainer.queue_free()
 	doors = doorSpawner.instantiate()
 	add_child(doors)
 	 # Replace with function body.
@@ -26,6 +26,7 @@ func on_door_opened(DoorType):
 			OpenLootDoor()
 		GlobalVars.DoorTypes.MONSTER_DOOR:
 			OpenMonsterDoor()
+			GlobalVars.monsterDoorsOpened += 1.0
 		GlobalVars.DoorTypes.DEATH_DOOR:
 			OpenDeathDoor()
 
@@ -68,7 +69,7 @@ func OpenMonsterDoor():
 	get_tree().reload_current_scene()
 
 
-func OpenDeathDoor():
+func OpenDeathDoor(): 
 	print("Fail!")
 	GlobalVars.playerScore = 0
 	get_tree().reload_current_scene()
