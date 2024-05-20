@@ -4,6 +4,11 @@ enum DoorTypes {EMPTY_DOOR, LOOT_DOOR, MONSTER_DOOR, DEATH_DOOR}
 enum AbilityTypes {MONTY_HALL, REVEAL, DESTRUCTION, KEY}
 
 var playerScore = 0
+var monsterDoorsSpawned = 1.0
+var monsterDoorsOpened = 1.0
+
+var goodDoorProbability = 1.0/3.0
+var badDoorProbability = 2.0/3.0
 
 signal DoorOpened(DoorType)
 signal AbilityUsed(AbilityType)
