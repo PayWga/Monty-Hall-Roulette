@@ -40,7 +40,8 @@ func _ready():
 				add_child(doorInstance)
 				doorInstance.setDoorTypeToChildren()
 				offset.x += 400
-
+		print(door)
+	GlobalVars.DoorsSpawned.emit(len(doorPool))
 
 func generatePool():
 	var doorPoolSize = getDoorCount(GlobalVars.playerScore)
@@ -75,6 +76,7 @@ func generatePool():
 		doorPool.append(GlobalVars.DoorTypes.EMPTY_DOOR)
 	else:
 		doorPool.append(GlobalVars.DoorTypes.LOOT_DOOR)
+	#doorPool.shuffle()
 	return doorPool
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

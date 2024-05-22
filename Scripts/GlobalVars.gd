@@ -12,6 +12,7 @@ var badDoorProbability = 2.0/3.0
 
 signal DoorOpened(DoorType)
 signal AbilityUsed(AbilityType)
+signal DoorsSpawned(DoorCount)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
