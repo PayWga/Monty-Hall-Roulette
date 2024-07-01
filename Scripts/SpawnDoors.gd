@@ -40,7 +40,8 @@ func _ready():
 				add_child(doorInstance)
 				doorInstance.setDoorTypeToChildren()
 				offset.x += 400
-
+		print(door)
+	GlobalVars.DoorsSpawned.emit(len(doorPool))
 
 func generatePool():
 	var doorPoolSize = getDoorCount(GlobalVars.playerScore)
@@ -75,6 +76,7 @@ func generatePool():
 		doorPool.append(GlobalVars.DoorTypes.EMPTY_DOOR)
 	else:
 		doorPool.append(GlobalVars.DoorTypes.LOOT_DOOR)
+	#doorPool.shuffle()
 	return doorPool
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -99,7 +101,7 @@ func getDoorCount(currentScore):
 	var upJumpProbability = 0.6 * (1.0 - exp(-currentScore))
 	var downJumpProbability = 0.6 * (1.0 - exp(-0.05 * currentScore))
 	var rand_val = randf()
-	min(baseFunc, 6)
+	baseFunc = min(baseFunc, 6)
 	if rand_val < upJumpProbability:
 		return baseFunc + 1
 	elif rand_val < upJumpProbability + downJumpProbability:
