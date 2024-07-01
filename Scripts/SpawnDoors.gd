@@ -101,7 +101,7 @@ func getDoorCount(currentScore):
 	var upJumpProbability = 0.6 * (1.0 - exp(-currentScore))
 	var downJumpProbability = 0.6 * (1.0 - exp(-0.05 * currentScore))
 	var rand_val = randf()
-	min(baseFunc, 6)
+	baseFunc = min(baseFunc, 6)
 	if rand_val < upJumpProbability:
 		return baseFunc + 1
 	elif rand_val < upJumpProbability + downJumpProbability:

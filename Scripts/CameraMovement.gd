@@ -73,18 +73,18 @@ func doors_spawned(DoorCount):
 			score_target_zoom = Vector2(1.15, 1.15)
 		5:
 			target_position = Vector2(380, 30)
-			score_target_position = Vector2(score_x_offset, -180)
+			score_target_position = Vector2(score_x_offset + 2, -180)
 			target_zoom = Vector2(0.55, 0.55)
-			score_target_zoom = Vector2(1.25, 1.25)
+			score_target_zoom = Vector2(1.35, 1.35)
 		6:
 			target_position = Vector2(585, 30)
 			score_target_position = Vector2(score_x_offset, -210)
 			target_zoom = Vector2(0.45, 0.45)
-			score_target_zoom = Vector2(1, 1)
+			score_target_zoom = Vector2(1.55, 1.55)
 		7:
 			target_position = Vector2(795, 30)
-			score_target_position = Vector2(score_x_offset, -240)
+			score_target_position = Vector2(score_x_offset - 4, -240)
 			target_zoom = Vector2(0.4, 0.4)
-			score_target_zoom = Vector2(1, 1)
+			score_target_zoom = Vector2(1.75, 1.75)
 	if GlobalVars.playerScore >= 9:
 		score_x_offset = -10
